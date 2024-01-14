@@ -5,7 +5,8 @@ import wangyiyun
 import os
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
-bot = telebot.TeleBot('6517716713:AAHJsJB3xiW_SgT2qM0iuNmAIRE9YwBpLIY')
+bot = telebot.TeleBot('YOUR_BOT_TOKEN')
+
 
 @bot.message_handler(commands=['shadowrocket'])
 def send_shadowrocket(message):
@@ -23,6 +24,7 @@ def send_shadowrocket(message):
     # Send the message
     bot.reply_to(message, message_to_send)
 
+
 @bot.message_handler(commands=['music'])
 def send_music(message):
     # Extract the music name from the message text
@@ -37,7 +39,7 @@ def send_music(message):
         return
 
     # Download the music
-    wangyiyun.download_music(music_link,music_name)
+    wangyiyun.download_music(music_link, music_name)
 
     # Send the music file
     audio = open(music_name, 'rb')
@@ -49,9 +51,11 @@ def send_music(message):
     # Delete the file
     os.remove(music_name)
 
+
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     response = openchat.chat_with_gpt(message.text)
     bot.reply_to(message, response)
+
 
 bot.polling()

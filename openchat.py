@@ -1,6 +1,5 @@
 import openai
 
-
 def chat_with_gpt(prompt):
     openai.api_key = "sk-j3iAgUsFnZ9UcXtdnuaa7hs7A4lajOJafVi7Lk9SiUZzoOIc"
     openai.api_base = "https://openkey.cloud/v1"  # 换成代理，一定要加v1
